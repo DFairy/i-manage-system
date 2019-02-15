@@ -2,9 +2,9 @@
   <Header class="head">
     <div class='head-name'>后台管理系统</div>
     <ul class='head-list'>
-      <li>
-        <Tooltip content="全屏" placement="bottom">
-            <Icon type="ios-expand" size="26" color='#fff' />
+      <li @click="handleFullScreen">
+        <Tooltip :content="fullscreen?'取消全屏':'全屏'" placement="bottom">
+            <Icon type="ios-expand" size="26" color='#fff'  />
         </Tooltip>
       </li>
       <li>
@@ -26,7 +26,7 @@
          <div slot="content">
            <ul class='login-out'>
              <li>
-               <a href="javascript:void(0)">
+               <a href="https://github.com/DFairy/i-manage-system">
                 <Button type="text">项目仓库</Button>
                </a>
              </li>
@@ -44,7 +44,43 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      fullscreen:false
+    }
+  },
+  methods:{
+    //屏幕全屏与取消全屏
+    handleFullScreen(){
+      
+      let element = document.documentElement;
+      if (this.fullscreen) {
+          if (document.exitFullscreen) {
+              document.exitFullscreen();
+          } else if (document.webkitCancelFullScreen) {
+              document.webkitCancelFullScreen();
+          } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+          } else if (document.msExitFullscreen) {
+              document.msExitFullscreen();
+          }
+      } else {
+          if (element.requestFullscreen) {
+              element.requestFullscreen();
+          } else if (element.webkitRequestFullScreen) {
+              element.webkitRequestFullScreen();
+          } else if (element.mozRequestFullScreen) {
+              element.mozRequestFullScreen();
+          } else if (element.msRequestFullscreen) {
+              // IE11
+              element.msRequestFullscreen();
+          }
+      }
+      this.fullscreen = !this.fullscreen;
+    }
+  }
+};
 </script>
 
 <style lang='less' scoped>
