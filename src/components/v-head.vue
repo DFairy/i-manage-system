@@ -53,7 +53,7 @@ export default {
   methods:{
     //屏幕全屏与取消全屏
     handleFullScreen(){
-      
+
       let element = document.documentElement;
       if (this.fullscreen) {
           if (document.exitFullscreen) {
@@ -108,10 +108,7 @@ body .ivu-poptip-popper {
     li {
       cursor: pointer;
       .avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 3px solid #ddd;
+        .avatarImg(50px,50px);
         &:hover {
           .rotate;
         }

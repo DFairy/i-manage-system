@@ -66,10 +66,7 @@ export default {
     background-position: center center;
     .center;
     .avatar{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 5px solid #ddd;
+        .avatarImg(100px,100px);
         &:hover{
             .rotate;
         }

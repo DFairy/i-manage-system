@@ -6,7 +6,7 @@
             <v-side></v-side>
             <Layout>
                 <tags></tags>
-                <Content :style="{margin: '14px', minHeight: '280px', background: '#fff'}">
+                <Content :style="{margin: '14px', minHeight: '280px', background: '#fff',height:'100%'}">
                     <transition name="move" mode="out-in">
                         <keep-alive :include="tagsList">
                             <router-view></router-view>

@@ -90,7 +90,7 @@ export default new Router({
                     path: '/wrong',
                     meta: { title: '错误页面' },
                     icon: 'fa-bullhorn',
-                    component: { render() { return 'router-view' } },
+                    component: { render(c) { return c('router-view') } },
                     children: [{
                             path: '/wrong/view404',
                             component: View404,
