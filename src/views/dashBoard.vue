@@ -64,6 +64,11 @@
                   </div>
                </li>
             </ul>
+            <Card>
+               <div class="schart">
+                  <line-chart></line-chart>
+               </div>
+            </Card>
          </div>
       </div>
       <!-- <Row>
@@ -75,7 +80,9 @@
 </template>
 
 <script>
+import lineChart from 'components/charts/lineChart.vue'
 export default {
+   components:{lineChart}
 }
 </script>
 
@@ -106,6 +113,7 @@ export default {
       }
       .panel{
          .flex(space-around);
+         margin-bottom: 20px;
          li{
             // padding: 0 20px;
             width: 30%;
@@ -130,6 +138,10 @@ export default {
                }
             }
          }
+      }
+      .schart{
+         width: 100%;
+         height: 324px;
       }
    }
 }

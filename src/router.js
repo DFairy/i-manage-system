@@ -15,8 +15,8 @@ const Form = () =>
     import ('views/form.vue')
 const Charts = () =>
     import ('views/charts.vue')
-const Editor = () =>
-    import ('views/editor.vue')
+const wangEditor = () =>
+    import ('views/Editor/wangEditor.vue')
 const Markdown = () =>
     import ('views/markdown.vue')
 const Upload = () =>
@@ -71,14 +71,14 @@ export default new Router({
                 },
                 {
                     path: '/editor',
-                    component: Editor,
+                    component: { render(c) { return c('router-view') } },
                     meta: { title: '编辑器' },
-                    icon: 'fa-edit (alias)'
-                        // children:[
-                        //     path:'',
-                        //     component:'',
-                        //     title:''
-                        // ]
+                    icon: 'fa-edit (alias)',
+                    children: [{
+                        path: '/editor/wangEditor',
+                        component: wangEditor,
+                        meta: { title: 'wangEditor' }
+                    }]
                 },
                 {
                     path: '/upload',
@@ -94,14 +94,12 @@ export default new Router({
                     children: [{
                             path: '/wrong/view404',
                             component: View404,
-                            meta: { title: '404页面' },
-                            icon: 'fa-table'
+                            meta: { title: '404页面' }
                         },
                         {
                             path: '/wrong/rights',
                             component: Rights,
-                            meta: { title: '权限页面' },
-                            icon: 'fa-table'
+                            meta: { title: '权限页面' }
                         }
                     ]
                 },
