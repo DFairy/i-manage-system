@@ -17,8 +17,14 @@ const Charts = () =>
     import ('views/charts.vue')
 const wangEditor = () =>
     import ('views/Editor/wangEditor.vue')
-const Markdown = () =>
-    import ('views/markdown.vue')
+const quillEditor = () =>
+    import ('views/Editor/quillEditor.vue')
+const mavonEditor = () =>
+    import ('views/Editor/mavonEditor.vue')
+const tinymceEditor = () =>
+    import ('views/Editor/tinymceEditor.vue')
+const vueDraggable = () =>
+    import ('views/componentPage/vueDraggable.vue')
 const Upload = () =>
     import ('views/upload.vue')
 const View404 = () =>
@@ -75,9 +81,36 @@ export default new Router({
                     meta: { title: '编辑器' },
                     icon: 'fa-edit (alias)',
                     children: [{
-                        path: '/editor/wangEditor',
-                        component: wangEditor,
-                        meta: { title: 'wangEditor' }
+                            path: '/editor/wangEditor',
+                            component: wangEditor,
+                            meta: { title: 'wangEditor' }
+                        },
+                        {
+                            path: '/editor/quillEditor',
+                            component: quillEditor,
+                            meta: { title: 'quillEditor' }
+                        },
+                        {
+                            path: '/editor/mavonEditor',
+                            component: mavonEditor,
+                            meta: { title: 'mavonEditor' }
+                        },
+                        {
+                            path: '/editor/tinymceEditor',
+                            component: tinymceEditor,
+                            meta: { title: 'tinymceEditor' }
+                        }
+                    ]
+                },
+                {
+                    path: '/component',
+                    meta: { title: '组件' },
+                    icon: 'fa-th-large',
+                    component: { render(c) { return c('router-view') } },
+                    children: [{
+                        path: '/component/vueDraggable',
+                        component: vueDraggable,
+                        meta: { title: '拖拽' }
                     }]
                 },
                 {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Card>
-            <p slot='title'>wangEditor:github地址 <a>https://github.com/wangfupeng1988/wangEditor</a> </p>
+            <p slot='title'>wangEditor:github地址 <a href="https://github.com/wangfupeng1988/wangEditor" target="blank">https://github.com/wangfupeng1988/wangEditor</a> </p>
             <p>
                 <div id="editor"></div>    
             </p>

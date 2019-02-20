@@ -7,11 +7,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@tinymce/tinymce-vue": "^2.0.0",
     "echarts": "^4.1.0",
     "font-awesome": "^4.7.0",
     "iview": "^3.0.1",
+    "mavon-editor": "^2.6.17",
+    "tinymce": "^5.0.0",
     "vue": "^2.5.17",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.0.1",
+    "vuedraggable": "^2.17.0",
     "vuex": "^3.0.1",
     "wangeditor": "^3.1.1"
   },

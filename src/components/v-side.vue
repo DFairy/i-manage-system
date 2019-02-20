@@ -1,18 +1,18 @@
 <template>
   <Sider  :style="{background: 'rgb(50, 65, 87)'}" >
-    <Menu active-name="0"  width="auto"  accordion >
+    <Menu active-name="0"  width="auto"  accordion ref="side_menu">
       <div v-for="(items,id) in $router.options.routes" :key="id">
        <div v-for="(item,index) in items.children" :key="index">
           <MenuItem :name="index" :to="item.path" v-if='!item.children' :class="$route.path==item.path?'active':''">
             <i class="fa" :class="item.icon"></i>
             <span>{{item.meta.title}}</span>
           </MenuItem>
-          <Submenu name="3" v-if='item.children' >
+          <Submenu :name="index" v-if='item.children' >
               <template slot="title">
                 <i class="fa" :class="item.icon"></i>
                 <span>{{item.meta.title}}</span>
               </template>
-              <MenuItem :name="values+''" :to="value.path" v-for="(value,values) in item.children" :key='values'
+              <MenuItem :name="index+'-'+values" :to="value.path" v-for="(value,values) in item.children" :key='values'
               :class="$route.path==value.path?'active':'' ">{{value.meta.title}}</MenuItem>
           </Submenu>
         </div>
@@ -25,6 +25,13 @@
 <script>
 
 export default {
+  mounted(){
+    this.$nextTick(()=>{
+      console.log(this.$refs.side_menu)
+      this.$refs.side_menu.updateOpened()
+      this.$refs.side_menu.updateActiveName()
+    })
+  }
 };
 </script>
 
