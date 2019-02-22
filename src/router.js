@@ -25,6 +25,8 @@ const tinymceEditor = () =>
     import ('views/Editor/tinymceEditor.vue')
 const vueDraggable = () =>
     import ('views/componentPage/vueDraggable.vue')
+const animateBlur = () =>
+    import ('views/special/animateBlur.vue')
 const Upload = () =>
     import ('views/upload.vue')
 const View404 = () =>
@@ -76,6 +78,34 @@ export default new Router({
                     icon: 'fa-pie-chart'
                 },
                 {
+                    path: '/upload',
+                    component: Upload,
+                    meta: { title: '文件上传' },
+                    icon: 'fa-cloud-upload'
+                },
+                {
+                    path: '/component',
+                    meta: { title: '组件' },
+                    icon: 'fa-th-large',
+                    component: { render(c) { return c('router-view') } },
+                    children: [{
+                        path: '/component/vueDraggable',
+                        component: vueDraggable,
+                        meta: { title: '拖拽' }
+                    }]
+                },
+                {
+                    path: '/special',
+                    meta: { title: '动效' },
+                    icon: 'fa-th-large',
+                    component: { render(c) { return c('router-view') } },
+                    children: [{
+                        path: '/special/animateBlur',
+                        component: animateBlur,
+                        meta: { title: '抛物线小球' }
+                    }]
+                },
+                {
                     path: '/editor',
                     component: { render(c) { return c('router-view') } },
                     meta: { title: '编辑器' },
@@ -101,23 +131,6 @@ export default new Router({
                             meta: { title: 'tinymceEditor' }
                         }
                     ]
-                },
-                {
-                    path: '/component',
-                    meta: { title: '组件' },
-                    icon: 'fa-th-large',
-                    component: { render(c) { return c('router-view') } },
-                    children: [{
-                        path: '/component/vueDraggable',
-                        component: vueDraggable,
-                        meta: { title: '拖拽' }
-                    }]
-                },
-                {
-                    path: '/upload',
-                    component: Upload,
-                    meta: { title: '文件上传' },
-                    icon: 'fa-cloud-upload'
                 },
                 {
                     path: '/wrong',
