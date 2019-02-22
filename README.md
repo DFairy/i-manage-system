@@ -1,6 +1,6 @@
 # i-manage-system
 
-## Project setup
+
 ```
 npm install
 ```
@@ -14,16 +14,4 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+该项目采用vue-cli3快速开发，基于框架iview写的一个后台管理系统
